@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.nodejs.pod_name }}
+  namespace: {{ .Values.general.namespace }}
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: {{ .Values.nodejs.pod_name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nodejs.pod_name }}
+    spec:
+      containers:
+        - name: nodejs-app-container
+          image: {{ .Values.nodejs.image }}
+          ports:
+            - containerPort: 3000
