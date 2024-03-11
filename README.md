@@ -52,3 +52,14 @@ An easy way to get started with a Express server with MongoDB with Node.js. [Rea
 - Delete a message with:
   - URL: http://localhost:3000/messages/1
   - Method: DELETE
+
+
+# Helm 
+How to create a package:  
+```
+helm package ./k8s 
+```
+How to setup the cluster: 
+```
+helm install nodejs-app ./___FILE___.tgz
+```

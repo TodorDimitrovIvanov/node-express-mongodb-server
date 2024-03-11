@@ -6,7 +6,7 @@ mongodb:
   replicaCount: 1 
 nodejs:
   pod_name: "nodejs"
-  image: "nodejs:latest"
+  image: "node:hydrogen-buster-slim"
   replicaCount: 3 
 storage: 
   disk_space: "1Gi"

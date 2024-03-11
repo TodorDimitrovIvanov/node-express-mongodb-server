@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app-deployment
+  name: {{ .Values.nodejs.pod_name }}
   namespace: {{ .Values.general.namespace }}
 spec:
   replicas: 3
