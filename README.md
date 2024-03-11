@@ -53,6 +53,20 @@ An easy way to get started with a Express server with MongoDB with Node.js. [Rea
   - URL: http://localhost:3000/messages/1
   - Method: DELETE
 
+# Docker
+How to build the image (from the root of the repo)
+```
+docker build -t my-node-app .
+```
+Tag and push image: 
+```
+docker tag nodejs-app:latest ___USERNAME___/nodejs-app:latest
+docker push ___USERNAME___/nodejs-app:latest
+```
+How to start:
+```
+docker run -p 3000:3000 my-node-app
+```
 
 # Helm 
 How to create a package:  
