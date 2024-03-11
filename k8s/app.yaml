@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-app-deployment
+  namespace: nodejs
 spec:
   replicas: 3
   selector: 
@@ -14,7 +15,9 @@ spec:
     spec:
       containers:
         - name: nodejs-app-container
-          image: ______IMAGE______:latest 
+          image: ${NODEJS_IMAGE}:${NODEJS_IMAGE_TAG}
           ports:
             - containerPort: 3000
-
+      envFrom:
+      - configMapRef:
+          name: app-variables
