@@ -2,22 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nodejs-app-deployment
-  namespace: nodejs
+  namespace: {{ .Values.general.namespace }}
 spec:
   replicas: 3
   selector: 
     matchLabels:
-      app: nodejs-app
+      app: {{ .Values.nodejs.pod_name }}
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: {{ .Values.nodejs.pod_name }}
     spec:
       containers:
         - name: nodejs-app-container
-          image: ${NODEJS_IMAGE}:${NODEJS_IMAGE_TAG}
+          image: {{ .Values.nodejs.image }}
           ports:
             - containerPort: 3000
-      envFrom:
-      - configMapRef:
-          name: app-variables

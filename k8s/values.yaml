@@ -1,0 +1,12 @@
+general:
+  namespace: "nodejs"
+mongodb: 
+  pod_name: "monogodb"
+  image: "mongo:latest"
+  replicaCount: 1 
+nodejs:
+  pod_name: "nodejs"
+  image: "nodejs:latest"
+  replicaCount: 3 
+storage: 
+  disk_space: "1Gi"

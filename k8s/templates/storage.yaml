@@ -2,9 +2,10 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mongodb-pv
+  namespace: {{ .Values.general.namespace }}
 spec:
   capacity:
-    storage: ${MONGO_STORAGE_SIZE}
+    storage: {{ .Values.storage.disk_space }}
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
@@ -19,12 +20,13 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mongodb-pvc
+  namespace: {{ .Values.general.namespace }}
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: ${MONGO_STORAGE_SIZE}
+      storage: {{ .Values.storage.disk_space }}
   envFrom:
     - configMapRef:
         name: app-variables
